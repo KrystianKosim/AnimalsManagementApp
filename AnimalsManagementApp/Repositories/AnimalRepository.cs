@@ -59,8 +59,7 @@ public class AnimalRepository : IAnimalsRepository
 
         using var cmd = new SqlCommand();
         cmd.Connection = con;
-        cmd.CommandText = "SELECT IdAnimal, Name, Description, Category, Area FROM Animal ORDER BY @OrderBy";
-        cmd.Parameters.AddWithValue("@OrderBy", OrderBy);
+        cmd.CommandText = "SELECT IdAnimal, Name, Description, Category, Area FROM Animal ORDER BY Name";
 
         var dr = cmd.ExecuteReader();
         var animals = new List<Animal>();

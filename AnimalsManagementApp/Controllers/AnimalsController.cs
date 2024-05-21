@@ -11,6 +11,11 @@ public class AnimalsController : ControllerBase
 {
     private IAnimalsService _animalsService;
 
+    public AnimalsController(IAnimalsService animalsService)
+    {
+        _animalsService = animalsService;
+    }
+
     
     [HttpGet]
     public IActionResult GetAnimals([FromQuery(Name = "orderBy")] string orderBy)
